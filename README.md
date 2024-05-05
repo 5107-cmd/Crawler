@@ -1,7 +1,7 @@
 # Crawler
 A crawler to collect company data.
 
-### Installation
+### Getting Started
 
 1. Clone the repository:
    ```bash
