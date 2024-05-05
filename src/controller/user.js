@@ -40,7 +40,7 @@ const getClientById = async (req, res) => {
 
     try {
         const query = {
-            text: `SELECT * FROM company_details WHERE cin = $1`,
+            text: `SELECT * FROM company_details WHERE id = $1`,
             values: [clientId],
         };
 
@@ -105,7 +105,7 @@ const deleteClientById = async (req, res) => {
 
     try {
         const query = {
-            text: 'DELETE FROM company_details WHERE cin = $1 RETURNING *',
+            text: 'DELETE FROM company_details WHERE id = $1 RETURNING *',
             values: [clientId],
         };
 
@@ -132,7 +132,7 @@ async function updateClientById(req, res) {
         const values = [...Object.values(updateFields), clientId];
 
         const query = {
-            text: `UPDATE company_details SET ${updateValues} WHERE cin = $${updateKeys.length + 1}`,
+            text: `UPDATE company_details SET ${updateValues} WHERE id = $${updateKeys.length + 1}`,
             values: values,
         };
 
